@@ -142,18 +142,20 @@ namespace ClassLibrary
 			}
 		}
 
-		public static int binSearch(int[] arr, int k)  // Запускаем бинарный поиск
+		public static void binSearch(int[] arr, int k)  // Запускаем бинарный поиск
 		{
-			int l = -1;              // l, r — левая и правая границы
-			int r = arr.Length;   
-			while (l < r - 1)       // Запускаем цикл
+			int l = 0;              // l, r — левая и правая границы
+			int r = arr.Length-1;   
+			while (r > l)       // Запускаем цикл
 			{
 				int m = (l + r) / 2;  // m — середина области поиска
-				if (arr[m] < k) l = m;
-					else r = m; // Сужение границ
+				if (arr[m] < k) l = m + 1;
+					else if (arr[m] > k) { r = m - 1; } 
+							 else { Console.WriteLine(m); };
 			}
-
-			return r;
+			// m и l можно поменять на "такое число есть"
+			if (arr[l] == k) { Console.WriteLine(l); } 
+			    else { Console.WriteLine("-1"); }
 		}
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////
