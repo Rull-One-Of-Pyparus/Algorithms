@@ -53,6 +53,12 @@ namespace Algorithms
 					k = int.Parse(Console.ReadLine());
 					Algorithm.binSearch(array, k);
 					break;
+
+				case 7: // поиск Кнут
+					string s1 = Console.ReadLine(); //что искать
+					string s2 = Console.ReadLine(); // текст
+					Algorithm.FindSubstring(s1, s2);
+					break;
 			}
 		}
 	}

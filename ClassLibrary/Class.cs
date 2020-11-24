@@ -141,7 +141,7 @@ namespace ClassLibrary
 				if (arr[i] == k) Console.WriteLine("такое число есть");
 			}
 		}
-
+		////////////////////
 		public static void binSearch(int[] arr, int k)  // Запускаем бинарный поиск
 		{
 			int l = 0;              // l, r — левая и правая границы
@@ -157,6 +157,40 @@ namespace ClassLibrary
 			if (arr[l] == k) { Console.WriteLine(l); } 
 			    else { Console.WriteLine("-1"); }
 		}
+		////////////////////
+		static int[] GetPrefix(string s)
+		{
+			int[] result = new int[s.Length];
+			result[0] = 0;
+			int index = 0;
+
+			for (int i = 1; i < s.Length; i++)
+			{
+				while (index >= 0 && s[index] != s[i]) { index--; }
+				index++;
+				result[i] = index;
+			}
+
+			return result;
+		}
+
+		public static void FindSubstring(string pattern, string text)
+		{
+			int[] pf = GetPrefix(pattern);
+			int index = 0;
+
+			for (int i = 0; i < text.Length; i++)
+			{
+				while (index > 0 && pattern[index] != text[i]) { index = pf[index - 1]; }
+				if (pattern[index] == text[i]) index++;
+				if (index == pattern.Length)
+				{
+					Console.WriteLine( i - index + 1);
+				}
+			}
+			
+			Console.WriteLine(-1);
+		}
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	public class Key
@@ -169,6 +203,7 @@ namespace ClassLibrary
 			"InsertionSort",
 			"LinearSearch",
 			"binSearch",
+			"FindSubstring",
 		};
 
 		public void List()
