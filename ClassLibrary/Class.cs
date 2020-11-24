@@ -29,19 +29,26 @@ namespace ClassLibrary
 			}
 			Console.WriteLine();
 		}
-		public static void Output(int[] arr)
+		public static void Input2(int[] arr)
 		{
-			for(int i = 0; i < arr.Length; i++)
+			for (int i = 0; i < arr.Length; i++)
 			{
-				Console.Write(arr[i]+" ");
+				arr[i] = i;
+			}
+		}
+			public static void Output(int[] arr)
+		{
+			for (int i = 0; i < arr.Length; i++)
+			{
+				Console.Write(arr[i] + " ");
 			}
 		}
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		public static void BubleSort(int[] arr)
 		{
-			for (int i = 0; i < arr.Length-1; i++)
+			for (int i = 0; i < arr.Length - 1; i++)
 			{
-				for ( int j = 0; j < arr.Length-1; j++)
+				for (int j = 0; j < arr.Length - 1; j++)
 				{
 					if (arr[j] > arr[j + 1])
 					{
@@ -134,9 +141,22 @@ namespace ClassLibrary
 				if (arr[i] == k) Console.WriteLine("такое число есть");
 			}
 		}
-		
-	}
 
+		public static int binSearch(int[] arr, int k)  // Запускаем бинарный поиск
+		{
+			int l = -1;              // l, r — левая и правая границы
+			int r = arr.Length;   
+			while (l < r - 1)       // Запускаем цикл
+			{
+				int m = (l + r) / 2;  // m — середина области поиска
+				if (arr[m] < k) l = m;
+					else r = m; // Сужение границ
+			}
+
+			return r;
+		}
+	}
+	////////////////////////////////////////////////////////////////////////////////////////////////////
 	public class Key
 	{
 		string[] ListOfMethod = new string[]
@@ -146,6 +166,7 @@ namespace ClassLibrary
 			"SelectionSort",
 			"InsertionSort",
 			"LinearSearch",
+			"binSearch",
 		};
 
 		public void List()

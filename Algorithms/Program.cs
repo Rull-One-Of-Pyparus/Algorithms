@@ -44,6 +44,15 @@ namespace Algorithms
 					int k = int.Parse(Console.ReadLine());
 					Algorithm.LinearSearch(array, k);
 					break;
+
+				case 6: //бинарный поиск
+					Algorithm.Input2(array);
+					Algorithm.Output(array);
+					Console.WriteLine();
+					Console.WriteLine("введите число:");
+					k = int.Parse(Console.ReadLine());
+					Algorithm.binSearch(array, k);
+					break;
 			}
 		}
 	}
