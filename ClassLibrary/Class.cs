@@ -154,8 +154,8 @@ namespace ClassLibrary
 							 else { Console.WriteLine(m); };
 			}
 			// m и l можно поменять на "такое число есть"
-			if (arr[l] == k) { Console.WriteLine(l); } 
-			    else { Console.WriteLine("-1"); }
+			if (arr[l] == k) { Console.WriteLine("такое число есть"); } 
+			    else { Console.WriteLine("такого числа нет"); }
 		}
 		////////////////////
 		static int[] GetPrefix(string s)
@@ -204,6 +204,7 @@ namespace ClassLibrary
 			"LinearSearch",
 			"binSearch",
 			"FindSubstring",
+			"Выберите из списка (FindSubstring фикс)",
 		};
 
 		public void List()
